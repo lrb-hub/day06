@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jiyun.mapper.EmpMapper">
+	
+	<select id="findAll" resultType="empVo" parameterType="empVo">
+		select e.*,d.name as dname from emp e,dept d where 
+		e.did = d.id
+	</select>
+	<insert id="add" parameterType="emp">
+		insert into emp values(null,#{name},#{sex},#{age},#{birthday},#{did})
+	</insert>
+	<select id="findById" parameterType="emp" resultType="int">
+	select * from emp where id = #{id}
+	</select>
+</mapper>                                                                                                 
+	
